@@ -1,0 +1,30 @@
+{
+  "name": "luip-marzban-node",
+  "version": "1.0.0",
+  "description": "LuIP-marzban node version",
+  "main": "app.js",
+  "scripts": {
+    "dev": "pm2 start ecosystem.config.js --env development",
+    "start": "./restore_banned_ips.sh && pm2 start ecosystem.config.js --env production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmdzov/luIP-marzban-node.git"
+  },
+  "keywords": [],
+  "author": "mmdzov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmdzov/luIP-marzban-node/issues"
+  },
+  "homepage": "https://github.com/mmdzov/luIP-marzban-node#readme",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^20.5.6"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "joi": "^17.9.2",
+    "pm2": "^5.3.0"
+  }
+}
