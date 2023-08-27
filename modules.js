@@ -1,3 +1,6 @@
+const fs = require("fs");
+const { join } = require("path");
+
 class Utils {
   /**
    * @param {ProviderAddr} options
@@ -16,6 +19,29 @@ class Utils {
       _address += process.env.PROVIDER_LISTEN_PATH;
 
     return _address;
+  }
+
+  RequiredFiles() {
+    const paths = [
+      {
+        name: "blocked_ips.csv",
+        def: "",
+      },
+      {
+        name: "session.json",
+        def: JSON.stringify({}),
+      },
+    ].map((item) => ({ ...item, name: join(__dirname, item.name) }));
+
+    for (let i in paths) {
+      const path = paths[i];
+
+      if (fs.existsSync(path.name)) continue;
+
+      fs.writeFileSync(path.name, path.def);
+    }
+
+    fs.writeFileSync();
   }
 }
 
