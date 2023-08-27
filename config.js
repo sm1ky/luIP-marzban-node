@@ -17,12 +17,6 @@ class Io {
     this.socket = io(addr);
   }
 
-  Connect() {
-    this.socket.on("connect", () => {});
-    this.OnBanUser();
-    this.OnUnbanUser();
-  }
-
   OnBanUser() {
     this.socket.on("banuser", () => {});
   }

@@ -18,5 +18,6 @@ utils.RequiredFiles();
     accessToken,
   });
 
-  socket.Connect();
+  socket.OnBanUser();
+  socket.OnUnbanUser();
 })();
