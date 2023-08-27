@@ -19,12 +19,15 @@
   },
   "homepage": "https://github.com/mmdzov/luIP-marzban-node#readme",
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/dotenv": "^8.2.0",
     "@types/node": "^20.5.6"
   },
   "dependencies": {
+    "axios": "^1.5.0",
     "dotenv": "^16.3.1",
     "joi": "^17.9.2",
-    "pm2": "^5.3.0"
+    "pm2": "^5.3.0",
+    "socket.io-client": "^4.7.2"
   }
 }
