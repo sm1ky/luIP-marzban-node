@@ -43,6 +43,14 @@ class Utils {
 
     fs.writeFileSync();
   }
+
+  ApiAuth() {
+    const [username, password] = (process.env?.PROVIDER_API_LOGIN || "").split(
+      ":",
+    );
+
+    return { username, password };
+  }
 }
 
 module.exports = { Utils };

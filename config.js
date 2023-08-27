@@ -18,10 +18,9 @@ class Io {
   }
 
   Connect() {
-    this.socket.on("connect", () => {
-      this.OnBanUser();
-      this.OnUnbanUser();
-    });
+    this.socket.on("connect", () => {});
+    this.OnBanUser();
+    this.OnUnbanUser();
   }
 
   OnBanUser() {
