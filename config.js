@@ -11,6 +11,8 @@ class Io {
   constructor(args) {
     const addr = new Utils().ProviderAddr({ apiPath: false, socketPath: true });
 
+    this.api_key = args.api_key;
+
     /**
      *
      * @typedef {import("socket.io-client").Socket} SocketClient
@@ -19,7 +21,7 @@ class Io {
      */
     this.socket = io(addr, {
       query: {
-        api_key: args.api_key,
+        api_key: this.api_key,
       },
       retries: 60,
     });
