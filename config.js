@@ -21,7 +21,7 @@ class Io {
       query: {
         api_key: args.api_key,
       },
-      retries: 10,
+      retries: 60,
     });
   }
 
