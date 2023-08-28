@@ -19,5 +19,5 @@ utils.RequiredFiles();
   });
 
   socket.OnBanUser();
-  socket.OnUnbanUser();
+  socket.OnUnbanUsers();
 })();

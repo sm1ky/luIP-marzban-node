@@ -1,8 +1,14 @@
-const fs = require("fs");
+const { spawn } = require("child_process");
 const { join } = require("path");
+
+const fs = require("fs");
 
 class Utils {
   /**
+   * @typedef {Object} ProviderAddr
+   * @property {boolean} apiPath
+   * @property {boolean} socketPath
+   *
    * @param {ProviderAddr} options
    * @returns {string}
    */
@@ -50,6 +56,42 @@ class Utils {
     );
 
     return { username, password };
+  }
+
+  /**
+   *
+   * @typedef {Object} BanIPDatatype
+   * @property {string} ip
+   * @property {string} expireAt
+   *
+   * @param {BanIPDatatype} args
+   */
+  BanIP(args) {
+    const scriptPath = "./ipban.sh";
+    const args = [scriptPath, args.ip, `${args.expireAt}`];
+
+    const childProcess = spawn("bash", args);
+
+    childProcess.on("close", (code) => {
+      if (code === 0) {
+        console.log(`IP ${ip} banned successfully.`);
+      } else {
+        console.error(`Failed to ban IP ${ip}.`);
+      }
+    });
+  }
+
+  UnbanIPs() {
+    exec("bash ./ipunban.sh", (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error executing ipunban.sh: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        console.error(`ipunban.sh stderr: ${stderr}`);
+        return;
+      }
+    });
   }
 }
 

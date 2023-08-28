@@ -9,20 +9,40 @@ class Io {
    * @param {IoArgsType} args
    */
   constructor(args) {
-    const addr = new Utils().ProviderAddr();
+    const addr = new Utils().ProviderAddr({ socketPath: true });
 
     /**
+     *
+     * @typedef {import("socket.io-client").Socket} SocketClient
+     *
      * @type {SocketClient}
      */
-    this.socket = io(addr);
+    this.socket = io(addr, {
+      query: {
+        token: args.accessToken,
+      },
+    });
   }
 
   OnBanUser() {
-    this.socket.on("banuser", () => {});
+    this.socket.on("banuser", (args) => {
+      const data = JSON.parse(args);
+
+      const utils = new Utils();
+
+      utils.BanIP({
+        ip: data.ip,
+        expireAt: data.expireAt,
+      });
+    });
   }
 
-  OnUnbanUser() {
-    this.socket.on("unbanuser", () => {});
+  OnUnbanUsers() {
+    this.socket.on("unbanusers", () => {
+      const utils = new Utils();
+
+      utils.UnbanIPs();
+    });
   }
 }
 
