@@ -10,12 +10,10 @@ utils.RequiredFiles();
 (async () => {
   const api = new Api();
 
-  const { access_token: accessToken } = await api.GetAccessToken(
-    utils.ApiAuth(),
-  );
+  const data = await api.GetAccessToken(utils.ApiAuth());
 
   const socket = new Io({
-    accessToken,
+    api_key: data?.api_key,
   });
 
   socket.OnBanUser();

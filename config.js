@@ -4,12 +4,12 @@ const { Utils } = require("./modules");
 class Io {
   /**
    * @typedef {Object} IoArgsType
-   * @property {string} accessToken
+   * @property {string} api_key
    *
    * @param {IoArgsType} args
    */
   constructor(args) {
-    const addr = new Utils().ProviderAddr({ socketPath: true });
+    const addr = new Utils().ProviderAddr({ apiPath: false, socketPath: true });
 
     /**
      *
@@ -19,13 +19,15 @@ class Io {
      */
     this.socket = io(addr, {
       query: {
-        token: args.accessToken,
+        api_key: args.api_key,
       },
+      forceNew: true,
+      retries: 10,
     });
   }
 
   OnBanUser() {
-    this.socket.on("banuser", (args) => {
+    this.socket.on("user:ip:ban", (args) => {
       const data = JSON.parse(args);
 
       const utils = new Utils();
@@ -38,7 +40,7 @@ class Io {
   }
 
   OnUnbanUsers() {
-    this.socket.on("unbanusers", () => {
+    this.socket.on("user:ip:unban", () => {
       const utils = new Utils();
 
       utils.UnbanIPs();

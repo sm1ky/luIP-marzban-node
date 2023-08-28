@@ -21,7 +21,7 @@ class Utils {
     if (+port === 443) _address = ADDRESS;
 
     if (options?.apiPath === true) _address += process.env.PROVIDER_API_PATH;
-    else if (options?.socketPath === true)
+    if (options?.socketPath === true)
       _address += process.env.PROVIDER_LISTEN_PATH;
 
     return _address;
@@ -46,8 +46,6 @@ class Utils {
 
       fs.writeFileSync(path.name, path.def);
     }
-
-    fs.writeFileSync();
   }
 
   ApiAuth() {
@@ -64,11 +62,11 @@ class Utils {
    * @property {string} ip
    * @property {string} expireAt
    *
-   * @param {BanIPDatatype} args
+   * @param {BanIPDatatype} params
    */
-  BanIP(args) {
+  BanIP(params) {
     const scriptPath = "./ipban.sh";
-    const args = [scriptPath, args.ip, `${args.expireAt}`];
+    const args = [scriptPath, params.ip, `${params.expireAt}`];
 
     const childProcess = spawn("bash", args);
 
