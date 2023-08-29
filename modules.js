@@ -58,11 +58,11 @@ class Utils {
 
   /**
    *
-   * @typedef {Object} BanIPDatatype
+   * @typedef {Object} BanIPDataType
    * @property {string} ip
    * @property {string} expireAt
    *
-   * @param {BanIPDatatype} params
+   * @param {BanIPDataType} params
    */
   BanIP(params) {
     const scriptPath = "./ipban.sh";
