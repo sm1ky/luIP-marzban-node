@@ -4,6 +4,8 @@ require("dotenv").config();
 
 const addr = new Utils().ProviderAddr({ apiPath: true });
 
+console.log(addr)
+
 const request = axios.create({
   baseURL: addr,
 });
