@@ -49,6 +49,16 @@ If you don't have node.js installed on your server, install it with nvm
 | `PROVIDER_LISTEN_PATH` | Set this value equal to the value of the LISTEN_PATH variable located in the env file of luIP-marzban. |
 
 
+## Permission to use ipban.sh && ipunban.sh
+In order for the file to work, permission must be obtained to use it
+```bash
+  # Open the project folder, then execute the follow command
+  chmod +x ./ipban.sh
+  chmod +x ./ipunban.sh
+  chmod +x ./restore_banned_ips.sh
+```
+
+
 ## Run the project
 After configuring the project, run it
 ```bash
