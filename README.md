@@ -66,3 +66,6 @@ After configuring the project, run it
   npm start
 
 ```
+
+## Note
+1. On the main server, in the .env file located in luIP-marzban, the value of the API_ENABLE variable must be true.
