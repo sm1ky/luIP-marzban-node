@@ -21,7 +21,7 @@ utils.RequiredFiles();
   socket.OnUnbanUsers();
 
   nodeCron.schedule(
-    `*/${process.env?.UPDATE_API_KEY || 50} * * * *`,
+    `*/${process.env?.UPDATE_API_KEY || 5} * * * *`,
     async () => {
       const data = await api.GetAccessToken(utils.ApiAuth());
 

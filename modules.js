@@ -91,6 +91,47 @@ class Utils {
       }
     });
   }
+
+  /**
+   * @typedef {Object} SessionApikeyType
+   * @property {string} key
+   * @property {number} expireAt
+   *
+   * @typedef {Object} SessionType
+   * @property {SessionApikeyType} api
+   *
+   * @returns {SessionType}
+   */
+  GetSession() {
+    const data = fs.readFileSync(join(__dirname, "session.json"));
+
+    return JSON.parse(data);
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  SessionApikeyExpired() {
+    const session = this.GetSession();
+
+    if (session?.api?.expireAt && Date.now() < session?.api?.expireAt)
+      return false;
+
+    return true;
+  }
+
+  /**
+   * @param {SessionApikeyType} params
+   */
+  SessionApikeyUpdate(params) {
+    const session = this.GetSession();
+
+    session.api = params;
+
+    fs.writeFileSync(join(__dirname, "session.json"), JSON.stringify(session));
+
+    return;
+  }
 }
 
 module.exports = { Utils };
