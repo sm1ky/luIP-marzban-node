@@ -18,8 +18,6 @@ class Api {
   async GetAccessToken(params) {
     const ss = new Utils();
 
-    console.log(ss.SessionApikeyExpired());
-
     if (ss.SessionApikeyExpired() === false)
       return { api_key: ss.GetSession()?.api?.key };
 
