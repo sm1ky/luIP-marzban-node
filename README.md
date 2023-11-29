@@ -90,4 +90,4 @@
 
 ## Автор оригинального скрипта и его репозиторий
 Автор: [mmdzdov](https://github.com/mmdzov)
-Репозиторий: [luIP-marzban](https://github.com/mmdzov/luIP-marzban)
+Репозиторий: [luIP-marzban-node](https://github.com/mmdzov/luIP-marzban-node)
