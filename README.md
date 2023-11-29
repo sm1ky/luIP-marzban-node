@@ -1,71 +1,82 @@
 # luIP-marzban-node
-LuIP-marzban node version
+Версия LuIP-marzban для использования с нодами
 
+## Установка
 
-## Installation
+Если у вас нет установленного node.js на вашем сервере, установите его с помощью nvm
 
-If you don't have node.js installed on your server, install it with nvm
-
-
-#### Install Node.js
+#### Установка Node.js
 ```bash
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
   source ~/.bashrc
   nvm install --lts
 ```
 
-#### Install other requirements
+
+#### Установка других зависимостей
 
 ```bash
-  sudo apt-get install -y iptables
-  sudo apt-get install gawk
-  sudo apt-get install csvtool
+  sudo apt-get update
+  sudo apt-get install -y ufw
+  sudo apt-get install -y dsniff
+  sudo apt-get install -y gawk
+  sudo apt-get install -y csvtool
   npm install pm2 -g
 ```
 
-
-#### Install luIP-marzban
+#### Устаановка luIP-marzban (Если ранее она не была установлена)
+[Репозиторий && документация](https://github.com/sm1ky/luIP-marzban.git)
 ```bash
-  git clone https://github.com/mmdzov/luIP-marzban-node.git
+  git clone https://github.com/sm1ky/luIP-marzban.git
+  cd luIP-marzban
+  cp .env.example .env
+  npm install
+```
+
+
+#### Устаановка luIP-marzban-node
+```bash
+  git clone https://github.com/sm1ky/luIP-marzban-node.git
   cd luIP-marzban-node
   cp .env.example .env
   npm install
 ```
 
 
-## luIP-marzban-node/.env file
+## Файл .env luIP-marzban-node 
 ```bash
-  # Open the project folder, then execute the follow command
+  # Откройте папку проекта, затем выполните следующую команду
   nano .env
 ```
 
 
-#### Provider configuration
-| Parameter | Description                |
+#### Настройки 
+| Параметр | Описание                |
 | :-------- | :------------------------- |
-| `PROVIDER_ADDR` | Enter the main server address. e.g: https://sub.example.com:3000 or https://example.com:3000. Port 3000 is the default port of luIP-marzban server.  |
-| `PROVIDER_API_LOGIN` | Set this value equal to the value of the API_LOGIN variable located in the env file of luIP-marzban. |
-| `PROVIDER_API_PATH` | Set this value equal to the value of the API_PATH variable located in the env file of luIP-marzban. |
-| `PROVIDER_LISTEN_PATH` | Set this value equal to the value of the LISTEN_PATH variable located in the env file of luIP-marzban. |
+| `PROVIDER_ADDR` | Введите адрес основного сервера, например: https://sub.example.com:3000 или https://example.com:3000. Порт 3000 - это порт сервера luIP-marzban по умолчанию.  |
+| `PROVIDER_API_LOGIN` | Установите это значение равным значению переменной API_LOGIN, находящейся в файле env luIP-marzban. |
+| `PROVIDER_API_PATH` | Установите это значение равным значению переменной API_PATH, находящейся в файле env luIP-marzban. |
+| `PROVIDER_LISTEN_PATH` | Установите это значение равным значению переменной LISTEN_PATH, находящейся в файле env luIP-marzban. |
 
 
-## Permission to use ipban.sh && ipunban.sh
-In order for the file to work, permission must be obtained to use it
+## Разрешение на использование ipban.sh && ipunban.sh && restore_banned_ips.sh && unbanall.sh
+Для того чтобы файлы работали, необходимо дать разрешение на их использование.
 ```bash
-  # Open the project folder, then execute the follow command
+  # Откройте папку проекта, затем выполните следующую команду
   chmod +x ./ipban.sh
   chmod +x ./ipunban.sh
   chmod +x ./restore_banned_ips.sh
+  chmod +x ./unbanall.sh
 ```
 
 
-## Run the project
-After configuring the project, run it
+## Запуск проекта
+После настройки проекта запустите его
 ```bash
-  # Open the project folder, then execute the follow command
+  # Откройте папку проекта, затем выполните следующую команду
   npm start
 
 ```
 
-## Note
-1. On the main server, in the .env file located in luIP-marzban, the value of the API_ENABLE variable must be true.
+## Примечание
+1. На основном сервере в файле .env, расположенном в luIP-marzban, значение переменной API_ENABLE должно быть true.
