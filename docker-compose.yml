@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  luIP-node:
+  luipnode:
     build:
       context: .  
       dockerfile: Dockerfile
@@ -13,4 +13,4 @@ services:
       - .env
     environment:
       TZ: Europe/Moscow
-    command: ["python", "./main.py"]
+    entrypoint: ["python", "main.py"]
