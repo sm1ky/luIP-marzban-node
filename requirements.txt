@@ -4,6 +4,7 @@ charset-normalizer==3.3.2
 DateTime==5.3
 h11==0.14.0
 idna==3.6
+python-dotenv==1.0.0
 python-engineio==4.8.0
 python-socketio==5.10.0
 pytz==2023.3.post1
