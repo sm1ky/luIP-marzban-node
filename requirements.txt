@@ -1,0 +1,14 @@
+bidict==0.22.1
+certifi==2023.11.17
+charset-normalizer==3.3.2
+DateTime==5.3
+h11==0.14.0
+idna==3.6
+python-engineio==4.8.0
+python-socketio==5.10.0
+pytz==2023.3.post1
+requests==2.31.0
+simple-websocket==1.0.0
+urllib3==2.1.0
+wsproto==1.2.0
+zope.interface==6.1
