@@ -9,9 +9,9 @@ config: Config = load_config()
 
 URL = f"{config.data.url}:{config.data.port}"
 
-socket_server_url = f"{URL}{config.data.path}"
+socket_server_url = f"{URL}{config.data.socketpath}"
 
-api_key = get_token(url=URL, params={"username": f"{config.data.username}", "password": f"{config.data.password}"})
+api_key = get_token(url=URL, apipath=config.data.apipath, params={"username": f"{config.data.username}", "password": f"{config.data.password}"})
 
 sio = socketio.Client()
 

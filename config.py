@@ -38,7 +38,8 @@ class luIPmarzban:
     port: str 
     username: str
     password: str
-    path: str
+    socketpath: str
+    apipath: str
     
 @dataclass
 class Config:
@@ -52,6 +53,7 @@ def load_config() -> Config:
                 port=getenv("PORT"),
                 username=getenv("USER"),
                 password=getenv("PASS"),
-                path=getenv("PATH")
+                socketpath=getenv("SOCKETPATH"),
+                apipath=getenv("APIPATH")
             ),
     )

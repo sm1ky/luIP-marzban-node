@@ -21,7 +21,7 @@
 ```
 
 
-#### Устаановка luIP-marzban-node
+#### Установка luIP-marzban-node
 ```bash
   git clone https://github.com/sm1ky/luIP-marzban-node.git
   cd luIP-marzban-node
@@ -43,7 +43,7 @@
 | `PORT` | Порт 3000 - это порт сервера luIP-marzban по умолчанию. |
 | `USER` | Установите это значение равным значению переменной API_LOGIN, находящейся в файле env luIP-marzban. |
 | `PASS` | Установите это значение равным значению переменной API_PATH, находящейся в файле env luIP-marzban. |
-| `PATH` | Установите это значение равным значению переменной LISTEN_PATH, находящейся в файле env luIP-marzban. |
+| `SOCKETPATH` | Установите это значение равным значению переменной LISTEN_PATH, находящейся в файле env luIP-marzban. |
 | `APIPATH` | Установите это значение равным значению переменной API_PATH, находящейся в файле env luIP-marzban. |
 
 
