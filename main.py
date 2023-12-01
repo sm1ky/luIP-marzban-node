@@ -9,7 +9,7 @@ config: Config = load_config()
 
 URL = f"{config.data.url}:{config.data.port}"
 
-socket_server_url = f"{URL}{config.data.socketpath}"
+socket_server_url = f"{URL}"
 
 api_key = get_token(url=URL, apipath=config.data.apipath, params={"username": f"{config.data.username}", "password": f"{config.data.password}"})
 
@@ -23,18 +23,23 @@ def connect():
 def disconnect():
     print("Disconnected from the server")
     
-# @sio.on("*")
-# def any_event_handler(event, data):
-#     print(f"Received event '{event}': {data}")
+@sio.event
+def connect_error(data):
+    print(f"Connection failed: {data}")
+
+    
+@sio.on("*")
+def any_event_handler(event, data):
+    print(f"Received event '{event}': {data}")
 
 @sio.on("user:ip:ban")
 def on_unban(data):
-    command = ["bash", "ipban.sh"]
-    subprocess.run(command, capture_output=True, text=True)
+    ban_ip(data)
     print("Received ban event:", data)
 
 @sio.on("user:ip:unban")
 def on_unban(data):
+    unban_ips()
     print("Received unban event:", data)
 
 
@@ -42,7 +47,7 @@ def on_unban(data):
 def main():
     while True:
         try:
-            sio.connect(f"{socket_server_url}?api_key={api_key}")  
+            sio.connect(f"{socket_server_url}", namespaces=[f'{config.data.socketpath}'], headers={"api_key": f"{api_key['data']['api_key']}"}) 
             sio.wait()
         except Exception as e:
             print(f"Error: {e}")
