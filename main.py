@@ -48,9 +48,8 @@ def connect_error(data):
 
 @sio.on("user:ip:ban")
 def on_unban(data):
-    logger.info(msg=f"Received ban event: {data}")
-    data_dict = json.loads(data)
-    ban_ip(data_dict)
+    ban_ip(data)
+    print("Received ban event:", data)
 
 @sio.on("user:ip:unban")
 def on_unban(data):
