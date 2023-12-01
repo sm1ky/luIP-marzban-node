@@ -10,6 +10,7 @@ python-socketio==5.10.0
 pytz==2023.3.post1
 requests==2.31.0
 simple-websocket==1.0.0
+websocket-client==1.6.4
 urllib3==2.1.0
 wsproto==1.2.0
 zope.interface==6.1

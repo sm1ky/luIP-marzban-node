@@ -51,8 +51,8 @@ def load_config() -> Config:
             data=luIPmarzban(
                 url=getenv("URL"),
                 port=getenv("PORT"),
-                username=getenv("USER"),
-                password=getenv("PASS"),
+                username=getenv("USERNAME"),
+                password=getenv("PASSWORD"),
                 socketpath=getenv("SOCKETPATH"),
                 apipath=getenv("APIPATH")
             ),
