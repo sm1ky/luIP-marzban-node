@@ -2,9 +2,9 @@ import requests
 from datetime import datetime, timedelta
 
 class Api:
-    def __init__(self, base_url, apipath):
+    def __init__(self, base_url, api_path):
         self.base_url = base_url
-        self.api_path = apipath 
+        self.api_path = api_path 
 
     def get_access_token(self, params):
         session_api_key = self.get_session_api_key()
