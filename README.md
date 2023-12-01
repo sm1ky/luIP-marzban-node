@@ -62,7 +62,7 @@
   # Откройте папку проекта, затем выполните следующую команду
   chmod +x scripts/ipban.sh
   chmod +x scripts/ipunban.sh
-  chmod +x scripts/restore_banned_ips.sh
+  chmod +x scripts/restore.sh
   chmod +x scripts/unbanall.sh
 ```
 
