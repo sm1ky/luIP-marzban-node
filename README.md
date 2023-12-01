@@ -1,6 +1,13 @@
 # luIP-marzban-node
 Версия LuIP-marzban для использования с нодами [Python]
 
+## Внимание
+Прежде чем настраивать скрипт, помните что нужно настроить хотя-бы ssh (ufw allow ssh) доступ перед включением ufw (ufw enable) иначе придется лезть через VNC :)
+И не забудье разрешить порт указанный в .env (По стандарту 3000)
+Готовые скрипты: 
+Main: https://docs.marzban.ru/advanced/ufw_main_panel/
+Node: https://docs.marzban.ru/advanced/ufw_node/
+
 ## Установка
 
 Если у вас нет установленного node.js на вашем сервере, установите его с помощью nvm
