@@ -27,7 +27,7 @@ Node: https://docs.marzban.ru/advanced/ufw_node/
 
 #### Установка Python3.11
 ```bash
-  sudo apt-get install python3.11 python3.11-venv
+  DEBIAN_FRONTEND=noninteractive sudo apt-get -y install python3.11 python3.11-venv
 ```
 
 
@@ -52,11 +52,11 @@ Node: https://docs.marzban.ru/advanced/ufw_node/
 #### Установка других зависимостей
 
 ```bash
-  sudo apt-get update
-  sudo apt-get install -y ufw
-  sudo apt-get install -y dsniff
-  sudo apt-get install -y gawk
-  sudo apt-get install -y csvtool
+  DEBIAN_FRONTEND=noninteractive sudo apt-get update
+  DEBIAN_FRONTEND=noninteractive sudo apt-get install -y ufw
+  DEBIAN_FRONTEND=noninteractive sudo apt-get install -y dsniff
+  DEBIAN_FRONTEND=noninteractive sudo apt-get install -y gawk
+  DEBIAN_FRONTEND=noninteractive sudo apt-get install -y csvtool
   npm install pm2 -g
 ```
 
