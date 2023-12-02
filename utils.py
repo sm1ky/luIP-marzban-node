@@ -12,7 +12,7 @@ def ban_ip(params):
         args = ["bash", script_path, ip, expire_at]
         
         try:
-            result = subprocess.run(args, capture_output=True, text=True timeout=3)
+            result = subprocess.run(args, capture_output=True, text=True, timeout=3)
             print(f"Script output: {result.stdout}")
             print(f"IP {ip} banned successfully.")
         except subprocess.TimeoutExpired as e:
