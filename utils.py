@@ -12,21 +12,23 @@ def ban_ip(params):
         args = ["bash", script_path, ip, expire_at]
         
         try:
-            result = subprocess.run(args, capture_output=True, text=True, timeout=3)
-            print(f"Script output: {result.stdout}")
-            print(f"IP {ip} banned successfully.")
+            result = subprocess.run(args, text=True, timeout=3)
+            if result.returncode == 0:
+                logger.info(f"IP {ip} banned successfully.")
+            else:
+                logger.info(f"Failed to ban IP {ip}. | Error code: {result.returncode}")
         except subprocess.TimeoutExpired as e:
-            print(f"IP {ip} banned successfully.")
+            logger.info(f"IP {ip} banned successfully.")
         except subprocess.CalledProcessError as e:
-            print(f"Failed to ban IP {ip}.")
-            print(f"Error: {e}")
-            print(f"Script error output: {e.output}")
+            logger.info(f"Failed to ban IP {ip}.")
+            logger.info(f"Error: {e}")
+            logger.info(f"Script error output: {e.output}")
     else:
         logging.error("'expireAt' should be a digit.")
         
 def unban_ips():
     try:
         subprocess.run(["bash", "scripts/ipunban.sh"])
-        print("IPs unbanned successfully.")
+        logger.info("IPs unbanned successfully.")
     except subprocess.CalledProcessError as e:
-        print("Error executing ipunban.sh:", e)
+        logger.info("Error executing ipunban.sh:", e)
