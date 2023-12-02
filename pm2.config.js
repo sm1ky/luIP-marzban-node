@@ -5,7 +5,7 @@ module.exports = {
         script: "main.py",
         interpreter: "/root/luIP-marzban-node/venv/bin/python",
         autorestart: true,
-        watch: true,
+        watch: false,
         ignore_watch: ["logs", "venv"], 
         max_memory_restart: "1G",  
         log_date_format: "YYYY-MM-DD HH:mm Z",
